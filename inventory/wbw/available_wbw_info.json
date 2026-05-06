@@ -1,0 +1,166 @@
+{
+  "wbw": [
+    {
+      "id": "bn",
+      "lang_code": "bn",
+      "lang_name": "Bengali",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/bn.sqlite",
+      "version": 1
+    },
+    {
+      "id": "id",
+      "lang_code": "id",
+      "lang_name": "Indonesian",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/id.sqlite",
+      "version": 1
+    },
+    {
+      "id": "en",
+      "lang_code": "en",
+      "lang_name": "English",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/en.sqlite",
+      "version": 1
+    },
+    {
+      "id": "ur",
+      "lang_code": "ur",
+      "lang_name": "Urdu",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/ur.sqlite",
+      "version": 1
+    },
+    {
+      "id": "ta",
+      "lang_code": "ta",
+      "lang_name": "Tamil",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/ta.sqlite",
+      "version": 1
+    },
+    {
+      "id": "ru",
+      "lang_code": "ru",
+      "lang_name": "Russian",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/ru.sqlite",
+      "version": 1
+    },
+    {
+      "id": "ml",
+      "lang_code": "ml",
+      "lang_name": "Malayalam",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/ml.sqlite",
+      "version": 1
+    },
+    {
+      "id": "inh",
+      "lang_code": "inh",
+      "lang_name": "Ingush",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/inh.sqlite",
+      "version": 1
+    },
+    {
+      "id": "hi",
+      "lang_code": "hi",
+      "lang_name": "Hindi",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/hi.sqlite",
+      "version": 1
+    },
+    {
+      "id": "de",
+      "lang_code": "de",
+      "lang_name": "German",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/de.sqlite",
+      "version": 1
+    },
+    {
+      "id": "fr",
+      "lang_code": "fr",
+      "lang_name": "French",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/fr.sqlite",
+      "version": 1
+    },
+    {
+      "id": "en_trans",
+      "lang_code": "en",
+      "lang_name": "English Transliteration",
+      "has_translation": false,
+      "has_transliteration": true,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/en_trans.sqlite",
+      "version": 1
+    },
+    {
+      "id": "dv",
+      "lang_code": "dv",
+      "lang_name": "Divehi",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/dv.sqlite",
+      "version": 1
+    },
+    {
+      "id": "zh",
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/zh.sqlite",
+      "version": 1
+    },
+    {
+      "id": "sq",
+      "lang_code": "sq",
+      "lang_name": "Albanian",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/sq.sqlite",
+      "version": 1
+    },
+    {
+      "id": "fa",
+      "lang_code": "fa",
+      "lang_name": "Persian",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/fa.sqlite",
+      "version": 1
+    },
+    {
+      "id": "sd",
+      "lang_code": "sd",
+      "lang_name": "Sindhi",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/sd.sqlite",
+      "version": 1
+    },
+    {
+      "id": "tr",
+      "lang_code": "tr",
+      "lang_name": "Turkish",
+      "has_translation": true,
+      "has_transliteration": false,
+      "url": "ghraw://drmiaji/kanzulimaan/master/inventory/wbw/tr.sqlite",
+      "version": 1
+    }
+  ]
+}
