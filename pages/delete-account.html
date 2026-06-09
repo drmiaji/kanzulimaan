@@ -356,7 +356,7 @@
 
     <button class="btn btn-danger" id="submitBtn" onclick="handleSubmit()">Submit deletion request</button>
     <div class="success-banner" id="successBanner">
-      ✓ Request received. We'll send a confirmation to your email and complete the deletion within 30 days.
+      ✓ Your email app has opened with a pre-filled request. Please send it to complete your deletion request.
     </div>
   </div>
 
@@ -425,7 +425,7 @@
       <strong>Need help or have a question?</strong>
       <span>Our support team responds within 2 business days.</span>
     </div>
-    <a href="mailto:bmiaji@gmail.com" class="btn">Email support</a>
+    <a href="mailto:support@kanzulimaan.app" class="btn">Email support</a>
   </div>
 
 </main>
@@ -440,26 +440,39 @@
 <script>
   function handleSubmit() {
     const email = document.getElementById('email').value.trim();
-    const type  = document.querySelector('input[name="del_type"]:checked');
-    const btn   = document.getElementById('submitBtn');
+    const typeEl = document.querySelector('input[name="del_type"]:checked');
+    const notes  = document.getElementById('notes').value.trim();
 
     if (!email || !email.includes('@')) {
       alert('Please enter a valid email address.');
       return;
     }
-    if (!type) {
+    if (!typeEl) {
       alert('Please select what you would like to delete.');
       return;
     }
 
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    const typeLabel = typeEl.value === 'account'
+      ? 'Delete entire account and all data'
+      : 'Delete specific data only (keep account)';
 
-    // Simulate submission (replace with your real backend/email service)
+    const subject = encodeURIComponent('Quran & Dua app — Account/Data Deletion Request');
+    const body = encodeURIComponent(
+      'Hello,\n\n' +
+      'I would like to submit a deletion request for Quran & Dua app.\n\n' +
+      'Registered email: ' + email + '\n' +
+      'Request type: ' + typeLabel + '\n' +
+      (notes ? 'Additional details: ' + notes + '\n' : '') +
+      '\nPlease process this request within 30 days as per your privacy policy.\n\n' +
+      'Thank you.'
+    );
+
+    window.location.href = 'mailto:bmiaji@gmail.com?subject=' + subject + '&body=' + body;
+
+    // Show confirmation banner after a short delay
     setTimeout(() => {
-      btn.style.display = 'none';
       document.getElementById('successBanner').style.display = 'block';
-    }, 1200);
+    }, 800);
   }
 </script>
 
