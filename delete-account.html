@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account or Data — Quran & Dua app</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-deep:   #1a4a35;
+      --green-mid:    #2d7a56;
+      --green-light:  #e8f5ee;
+      --gold:         #c9a94e;
+      --cream:        #faf8f4;
+      --text-dark:    #1a1a1a;
+      --text-mid:     #4a5568;
+      --text-light:   #718096;
+      --border:       #d4e6db;
+      --danger:       #c0392b;
+      --danger-light: #fdf2f0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.65;
+    }
+
+    /* ── Geometric border motif ── */
+    .geo-border {
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--green-deep) 0px, var(--green-deep) 12px,
+        var(--gold)       12px, var(--gold)       16px,
+        var(--green-mid)  16px, var(--green-mid)  28px,
+        var(--gold)       28px, var(--gold)        32px
+      );
+    }
+
+    header {
+      background: var(--green-deep);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header .app-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    header p {
+      font-size: 1rem;
+      color: #aed4bc;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Section titles ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 20px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 12px;
+    }
+
+    p { color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Steps ── */
+    .steps { list-style: none; margin: 24px 0 32px; }
+    .steps li {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--green-deep);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+    .step-body span { font-size: 0.9rem; color: var(--text-mid); }
+
+    /* ── Request form card ── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+    .card.danger-card {
+      border-color: #f0c0bb;
+      background: var(--danger-light);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    input[type="email"], select, textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.93rem;
+      color: var(--text-dark);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 20px;
+    }
+    input[type="email"]:focus, select:focus, textarea:focus {
+      border-color: var(--green-mid);
+      background: #fff;
+    }
+    textarea { resize: vertical; min-height: 90px; }
+
+    .radio-group { margin-bottom: 20px; }
+    .radio-group .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .radio-group .option:hover { background: var(--green-light); border-color: var(--green-mid); }
+    .radio-group .option input[type="radio"] { margin-top: 3px; accent-color: var(--green-deep); }
+    .radio-group .option .opt-text strong { display: block; font-size: 0.93rem; font-weight: 600; color: var(--text-dark); }
+    .radio-group .option .opt-text span { font-size: 0.85rem; color: var(--text-mid); }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary   { background: var(--green-deep); color: #fff; }
+    .btn-danger    { background: var(--danger); color: #fff; }
+    .btn:disabled  { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    /* confirmation banner */
+    .success-banner {
+      display: none;
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      border-radius: 8px;
+      padding: 16px 20px;
+      color: var(--green-deep);
+      font-size: 0.93rem;
+      font-weight: 500;
+      margin-top: 16px;
+    }
+
+    /* ── Data table ── */
+    .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.88rem; }
+    .data-table th {
+      background: var(--green-deep);
+      color: #fff;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+    }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-mid); }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--green-light); }
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .badge-del   { background: #fde8e8; color: var(--danger); }
+    .badge-keep  { background: #fff3cd; color: #856404; }
+
+    /* ── Divider ── */
+    .divider { height: 1px; background: var(--border); margin: 44px 0; }
+
+    /* ── Contact ── */
+    .contact-box {
+      background: var(--green-deep);
+      color: #fff;
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .contact-box .icon { font-size: 2rem; }
+    .contact-box .text { flex: 1; }
+    .contact-box .text strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+    .contact-box .text span { font-size: 0.88rem; color: #aed4bc; }
+    .contact-box a.btn { background: var(--gold); color: var(--green-deep); white-space: nowrap; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 500px) {
+      .card { padding: 20px; }
+      header { padding: 36px 16px 30px; }
+      main { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="geo-border"></div>
+
+<header>
+  <div class="app-label">Kanzul Imaan — Privacy</div>
+  <h1>Account &amp; Data Deletion</h1>
+  <p>You have full control over your data. Use this page to delete your account or request removal of specific data.</p>
+</header>
+
+<main>
+
+  <!-- HOW TO DELETE IN-APP -->
+  <div class="section-label">Option 1 — In-App</div>
+  <h2>Delete directly inside the app</h2>
+  <p>The fastest way to delete your account is from within Kanzul Imaan:</p>
+  <ul class="steps">
+    <li>
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Open Kanzul Imaan</strong>
+        <span>Launch the app on your Android device.</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Go to Settings</strong>
+        <span>Tap the menu icon (☰) and select <em>Settings</em>.</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Open Account</strong>
+        <span>Select <em>Account</em> → <em>Delete Account</em>.</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Confirm deletion</strong>
+        <span>Read the confirmation and tap <em>Delete my account</em>. Your account and data will be removed within 30 days.</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <!-- ONLINE FORM -->
+  <div class="section-label">Option 2 — Online Request</div>
+  <h2>Submit a deletion request</h2>
+  <p>If you can't access the app, complete the form below. We'll process your request within <strong>30 days</strong> and confirm by email.</p>
+
+  <div class="card">
+    <label for="email">Registered email address *</label>
+    <input type="email" id="email" placeholder="you@example.com" />
+
+    <label>What would you like to delete? *</label>
+    <div class="radio-group">
+      <label class="option">
+        <input type="radio" name="del_type" value="account" />
+        <div class="opt-text">
+          <strong>Delete my entire account</strong>
+          <span>Removes your account and all associated data permanently.</span>
+        </div>
+      </label>
+      <label class="option">
+        <input type="radio" name="del_type" value="data" />
+        <div class="opt-text">
+          <strong>Delete specific data only (keep account)</strong>
+          <span>Remove certain data — bookmarks, history, notes — without closing your account.</span>
+        </div>
+      </label>
+    </div>
+
+    <label for="notes">Additional details (optional)</label>
+    <textarea id="notes" placeholder="E.g., please remove my reading history and bookmarks only."></textarea>
+
+    <button class="btn btn-danger" id="submitBtn" onclick="handleSubmit()">Submit deletion request</button>
+    <div class="success-banner" id="successBanner">
+      ✓ Request received. We'll send a confirmation to your email and complete the deletion within 30 days.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHAT GETS DELETED -->
+  <div class="section-label">Data Retention Policy</div>
+  <h2>What data is deleted or kept</h2>
+  <p>The table below explains what happens to each type of data when you delete your account.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Data type</th>
+        <th>Description</th>
+        <th>On account deletion</th>
+        <th>Retention after request</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Account info</strong></td>
+        <td>Email address, username</td>
+        <td><span class="badge badge-del">Deleted</span></td>
+        <td>Within 30 days</td>
+      </tr>
+      <tr>
+        <td><strong>Reading history</strong></td>
+        <td>Surahs and pages visited</td>
+        <td><span class="badge badge-del">Deleted</span></td>
+        <td>Within 30 days</td>
+      </tr>
+      <tr>
+        <td><strong>Bookmarks &amp; notes</strong></td>
+        <td>Saved verses, personal notes</td>
+        <td><span class="badge badge-del">Deleted</span></td>
+        <td>Within 30 days</td>
+      </tr>
+      <tr>
+        <td><strong>App preferences</strong></td>
+        <td>Font, theme, translation settings</td>
+        <td><span class="badge badge-del">Deleted</span></td>
+        <td>Within 30 days</td>
+      </tr>
+      <tr>
+        <td><strong>Crash &amp; analytics logs</strong></td>
+        <td>Anonymised diagnostic data</td>
+        <td><span class="badge badge-keep">Retained</span></td>
+        <td>Up to 90 days (anonymised)</td>
+      </tr>
+      <tr>
+        <td><strong>Legal / billing records</strong></td>
+        <td>Purchase receipts (if applicable)</td>
+        <td><span class="badge badge-keep">Retained</span></td>
+        <td>As required by law</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <div class="contact-box">
+    <div class="icon">✉️</div>
+    <div class="text">
+      <strong>Need help or have a question?</strong>
+      <span>Our support team responds within 2 business days.</span>
+    </div>
+    <a href="mailto:bmiaji@gmail.com" class="btn">Email support</a>
+  </div>
+
+</main>
+
+<div class="geo-border"></div>
+
+<footer>
+  &copy; 2025 Kanzul Imaan. All rights reserved. &nbsp;·&nbsp;
+  <a href="#" style="color: var(--green-mid); text-decoration: none;">Privacy Policy</a>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const email = document.getElementById('email').value.trim();
+    const type  = document.querySelector('input[name="del_type"]:checked');
+    const btn   = document.getElementById('submitBtn');
+
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (!type) {
+      alert('Please select what you would like to delete.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    // Simulate submission (replace with your real backend/email service)
+    setTimeout(() => {
+      btn.style.display = 'none';
+      document.getElementById('successBanner').style.display = 'block';
+    }, 1200);
+  }
+</script>
+
+</body>
+</html>
